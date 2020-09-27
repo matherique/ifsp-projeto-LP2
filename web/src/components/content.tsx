@@ -2,11 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaRegCheckCircle, FaRegCircle } from 'react-icons/fa'
 
+import { Title } from '../styles/components'
+
 const Container = styled.div``
 
-const TodoItem = styled.div`
+interface TODOProps {
+  done?: boolean
+}
+
+const TodoItem = styled.div<TODOProps>`
   width: 100%;
-  padding: 15px 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  text-decoration: ${props => (props.done ? 'line-through' : 'none')};
+  opacity: ${props => (props.done ? '0.4' : '1')};
 
   &:hover {
     background-color: #1a1a1d;
@@ -14,32 +24,65 @@ const TodoItem = styled.div`
   }
 `
 
-const Title = styled.h3`
-  border-bottom: 2px solid #1a1a1a;
-  padding: 5px 0;
-`
-
 const CheckCircle = styled(FaRegCheckCircle)`
   font-size: 20px;
+  margin-right: 10px;
 `
 
 const UnCheckCircle = styled(FaRegCircle)`
   font-size: 20px;
+  margin-right: 10px;
 `
 
-function Content(): JSX.Element {
-  const [done, setDone] = React.useState<boolean>(false)
+interface TODO {
+  id: number
+  title: string
+  date: string
+  done: boolean
+}
 
-  function handleToggleTodo() {
-    setDone(old => !old)
+const todoList: TODO[] = [
+  { id: 1, title: 'todo 1', date: new Date().toUTCString(), done: false },
+  { id: 2, title: 'todo 2', date: new Date().toUTCString(), done: false },
+  { id: 3, title: 'todo 3', date: new Date().toUTCString(), done: false },
+  { id: 4, title: 'todo 4', date: new Date().toUTCString(), done: false }
+]
+
+function Content(): JSX.Element {
+  const [todos, setTodos] = React.useState<TODO[]>(todoList)
+
+  function handleToggleTodo(id: number) {
+    setTodos(
+      todos.map(todo => {
+        if (todo.id === id) todo.done = !todo.done
+        return todo
+      })
+    )
   }
 
   return (
     <Container>
       <Title>Tarefas</Title>
-      <TodoItem onClick={handleToggleTodo}>
-        {done ? <CheckCircle /> : <UnCheckCircle />}
-      </TodoItem>
+      {todos
+        .filter(todo => !todo.done)
+        .map(todo => (
+          <TodoItem key={todo.id} onClick={() => handleToggleTodo(todo.id)}>
+            {todo.done ? <CheckCircle /> : <UnCheckCircle />}
+            {todo.title}
+          </TodoItem>
+        ))}
+      {todos
+        .filter(todo => todo.done)
+        .map(todo => (
+          <TodoItem
+            done={todo.done}
+            key={todo.id}
+            onClick={() => handleToggleTodo(todo.id)}
+          >
+            {todo.done ? <CheckCircle /> : <UnCheckCircle />}
+            {todo.title}
+          </TodoItem>
+        ))}
     </Container>
   )
 }

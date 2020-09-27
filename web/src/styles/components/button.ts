@@ -6,7 +6,6 @@ export const Link = styled.a`
   font-size: 20px;
   text-align: center;
   padding: 10px 0px;
-  border-radius: 7px;
   transition: 0.2s all;
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.primary};
@@ -25,7 +24,6 @@ export const Button = styled.button`
   font-size: 20px;
   text-align: center;
   padding: 10px 0px;
-  border-radius: 7px;
   transition: 0.2s all;
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.primary};

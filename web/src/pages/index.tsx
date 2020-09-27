@@ -16,12 +16,11 @@ const Container = styled.div`
 `
 
 const Button = styled.a`
-  margin: 10px 0px;
+  margin: 5px 0px;
   width: 400px;
   font-size: 20px;
   text-align: center;
   padding: 15px 0px;
-  border-radius: 7px;
   transition: 0.2s all;
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.primary};
