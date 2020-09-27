@@ -38,7 +38,7 @@ const Title = styled.h1`
   margin-bottom: 20px;
 `
 
-function Home(): JSX.Element {
+function Index(): JSX.Element {
   return (
     <div>
       <Head>
@@ -58,4 +58,4 @@ function Home(): JSX.Element {
     </div>
   )
 }
-export default Home
+export default Index
