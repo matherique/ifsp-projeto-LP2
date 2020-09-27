@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FaCogs } from 'react-icons/fa'
 
 const Container = styled.div`
   padding: 10px;
@@ -39,7 +40,9 @@ function Header(): JSX.Element {
         <ProfilePicture />
         <ProfileName>Matheus Henrique</ProfileName>
       </Profile>
-      <ConfigMenu>COnfig</ConfigMenu>
+      <ConfigMenu>
+        <FaCogs />
+      </ConfigMenu>
     </Container>
   )
 }
