@@ -1,0 +1,15 @@
+version: "3.8"
+services: 
+  web: 
+    build: ./web/.
+    command: npm start
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - api
+    volumes:
+      - .:/usr/src/app
+  api:
+    build: ./api/.
+    ports:
+      - "5003:80"
