@@ -13,6 +13,11 @@ Front-end em ReactJS e Next.js e backend em dotnet
 docker-compose up --build
 ```
 
-BACKEND - http://localhost:5003/
+BACKEND - http://localhost:5000/
 
 FRONTEND - http://localhost:3000/
+
+
+# Banco de dados 
+
+![banco de dados](database.png)
