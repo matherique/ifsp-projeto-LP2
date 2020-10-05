@@ -48,6 +48,10 @@ const todoList: TODO[] = [
   { id: 4, title: 'todo 4', date: new Date().toUTCString(), done: false }
 ]
 
+const Divisor = styled.div`
+  border-bottom: 2px solid #1a1a1a;
+`
+
 function Content(): JSX.Element {
   const [todos, setTodos] = React.useState<TODO[]>(todoList)
 
@@ -62,7 +66,7 @@ function Content(): JSX.Element {
 
   return (
     <Container>
-      <Title>Tarefas</Title>
+      <Title>A fazer</Title>
       {todos
         .filter(todo => !todo.done)
         .map(todo => (
@@ -71,6 +75,7 @@ function Content(): JSX.Element {
             {todo.title}
           </TodoItem>
         ))}
+      <Title>Feito</Title>
       {todos
         .filter(todo => todo.done)
         .map(todo => (

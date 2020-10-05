@@ -2,26 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaPlusSquare } from 'react-icons/fa'
 
+import Tags from './tags'
+import { List, ListItem } from '../styles/components'
+
 const Container = styled.div`
   /* background-color: red; */
-`
-
-const MenuItem = styled.li`
-  padding: 10px 0px;
-
-  &:before {
-    content: '·';
-    font-weight: 700;
-    margin: 0px 10px;
-  }
-  &:hover {
-    background-color: #1a1a1d;
-    cursor: pointer;
-  }
-`
-
-const MenuContent = styled.ul`
-  list-style: none;
 `
 
 const Header = styled.div`
@@ -37,7 +22,7 @@ const AddIcon = styled(FaPlusSquare)`
   margin: 0px 10px;
 `
 
-export const Title = styled.h3`
+const Title = styled.h3`
   padding: 10px 0;
 `
 
@@ -48,13 +33,15 @@ function Menu(): JSX.Element {
         <Title>Projetos</Title>
         <AddIcon />
       </Header>
-      <MenuContent>
-        <MenuItem>Item 1</MenuItem>
-        <MenuItem>Item 2</MenuItem>
-        <MenuItem>Item 3</MenuItem>
-        <MenuItem>Item 4</MenuItem>
-        <MenuItem>Item 5</MenuItem>
-      </MenuContent>
+      <List>
+        <ListItem>Item 1</ListItem>
+        <ListItem>Item 2</ListItem>
+        <ListItem>Item 3</ListItem>
+        <ListItem>Item 4</ListItem>
+        <ListItem>Item 5</ListItem>
+      </List>
+      <Title>Tags</Title>
+      <Tags />
     </Container>
   )
 }

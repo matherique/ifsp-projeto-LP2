@@ -45,7 +45,7 @@ function Login(): JSX.Element {
       </Head>
       <Layout>
         <Container>
-          <Title>Entrar</Title>
+          <Title>LOGIN</Title>
           <Form onSubmit={handleSubmit}>
             <Input
               type="mail"
