@@ -20,6 +20,7 @@ const Header = styled.div`
 const AddIcon = styled(FaPlusSquare)`
   font-size: 20px;
   margin: 0px 10px;
+  cursor: pointer;
 `
 
 const Title = styled.h3`
@@ -27,11 +28,15 @@ const Title = styled.h3`
 `
 
 function Menu(): JSX.Element {
+  const handleAddProjeto = React.useCallback(() => {
+    console.log('apertou o bota')
+  }, [])
+
   return (
     <Container>
       <Header>
         <Title>Projetos</Title>
-        <AddIcon />
+        <AddIcon onClick={handleAddProjeto} />
       </Header>
       <List>
         <ListItem>Item 1</ListItem>
